@@ -35,32 +35,40 @@ class GFG
 //User function Template for Java
 
 class Solution{
-    
-    int dfs(int currNum, int limit){
-        if(currNum > limit){ 
-            return 0 ; 
-        }
-        int ans = 1 ;
-        if(currNum == 0){
-            for(int i = 1 ; i<=9 ; i++){
-                ans += dfs(i , limit); 
-            }
-        }else{
-            int lastdig = currNum % 10 ;
-            if(lastdig != 9){ 
-                ans += dfs(currNum * 10 + lastdig + 1, limit);
-            }
-            if(lastdig != 0){ 
-                ans += dfs(currNum * 10 + lastdig - 1, limit);
-            }
-        }
-        return ans ; 
-    }
-   
-    
+    int ans;
     int steppingNumbers(int n, int m){
         // code here
-        return dfs(0 , m) - dfs(0 , n - 1) ; 
+        ans = 0;
+        if(n == 0){
+            ans++;
+        }
+        
+        for(int i=1;i<=9;i++){
+            dfs(i,n,m);
+        }
+        
+        return ans;
+    }
+    
+    public void dfs(int curr,int n,int m){
+        if(curr > m){
+            return;
+        }
+        
+        if(curr >= n && curr <= m ){
+            ans++;
+        }
+        
+        int lastDigit = curr % 10;
+        if(lastDigit == 9){
+            dfs(curr*10+8,n,m);
+        }else if(lastDigit == 0){
+            dfs(curr*10+1,n,m);
+        }else{
+            dfs(curr*10+(lastDigit+1),n,m);
+            dfs(curr*10+(lastDigit-1),n,m);
+        }
         
     }
+    
 }

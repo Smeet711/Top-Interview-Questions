@@ -37,11 +37,8 @@ class Solution {
     alphanumeric[] sortedStrings(int N, String A[]) {
         
         Map<String,Integer>mp=new TreeMap<>();
-
-        for(int i=0;i<N;i++)
-
-        {
-
+//  the below for loop is put unique items in it and their count
+        for(int i=0;i<N;i++){
            if(mp.containsKey(A[i])){
                mp.put(A[i],mp.get(A[i])+1);
            }else{
@@ -52,7 +49,7 @@ class Solution {
         alphanumeric[] v=new alphanumeric[mp.size()];
 
         int i=0;
-
+// to render or print map into array
         for(Map.Entry<String,Integer>e:mp.entrySet()){
             v[i++]=new alphanumeric(e.getKey(),e.getValue());
         }

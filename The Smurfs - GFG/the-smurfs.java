@@ -26,7 +26,7 @@ class GFG{
 class Solution{
     static int minFind(int n, String a[]){
         // code here
-         int r=0;
+        int r=0;
 
         int g=0;
 

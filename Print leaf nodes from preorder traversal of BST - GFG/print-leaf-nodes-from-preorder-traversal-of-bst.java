@@ -36,10 +36,9 @@ class Solution
     public int[] leafNodes(int arr[], int N)
     {
         // code here
-         Stack<Integer> st = new Stack<Integer>();
+      Stack<Integer> st = new Stack<Integer>();
       ArrayList<Integer> ar = new ArrayList<Integer>();
     
-      int k = 0;
       st.push(arr[0]);
       for( int i = 1 ;i< N ;i++){
           if(arr[i] < st.peek()){

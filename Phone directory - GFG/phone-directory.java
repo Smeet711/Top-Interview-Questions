@@ -34,39 +34,33 @@ class Solution{
                                         String contact[], String s)
     {
         
-        ArrayList<ArrayList<String>> a = new ArrayList<>();
-        ArrayList<String> c = new ArrayList<>();
-        
-        Set<String> w = new HashSet<>();
-        
-        for(int i=1;i<s.length()+1;i++){
-            String d = s.substring(0,i);
-            
-            
-            c = new ArrayList<>();
-            w = new HashSet<>();
+        ArrayList<ArrayList<String>> resultList = new ArrayList<>();
+        //
+        for(int i=0;i<s.length();i++){
+            ArrayList<String> tempList = new ArrayList<>();
+            String temp = s.substring(0,i+1);
             
             for(int j=0;j<n;j++){
-                if( contact[j].contains(d) ){
-                    w.add(contact[j]);
+                String t = contact[j];
+                if(t.startsWith(temp)){
+                    if(!tempList.contains(t)){
+                        tempList.add(t);
+                    }
                 }
             }
             
-            for(String x : w ){
-                c.add(x);
+            Collections.sort(tempList);
+            
+            if(tempList.isEmpty()){
+                tempList.add("0");
             }
             
-            if(c.size() > 0 ){
-                Collections.sort(c);
-                a.add(c);
-            }else{
-                c.add("0");
-                a.add(c);
-            }
+            resultList.add(tempList);
+            
         }
+        //
         
-        
-        return a;
+        return resultList;
         
     }
 }

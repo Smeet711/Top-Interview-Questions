@@ -33,8 +33,8 @@ class Solution{
     static ArrayList<ArrayList<String>> displayContacts(int n, 
                                         String contact[], String s)
     {
-        
-        ArrayList<ArrayList<String>> resultList = new ArrayList<>();
+       
+         ArrayList<ArrayList<String>> resultList = new ArrayList<>();
         //
         for(int i=0;i<s.length();i++){
             ArrayList<String> tempList = new ArrayList<>();

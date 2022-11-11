@@ -40,8 +40,6 @@ class Solution {
     }
     
     
-    
-    
     //
     static String isSumOfTwo(int N){
         // code here
